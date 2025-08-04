@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helldivers 2 - Galactic War</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/war.css">
+</head>
+<body>
+    <header>
+        <img src="images/helldivers-logo.png" alt="Helldivers 2 Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="war.html" class="active">Galactic War</a></li>
+                <li><a href="story.html">Story</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="war-main">
+        <div class="war-header">
+            <h1>GALACTIC WAR TERMINAL</h1>
+            <div class="war-status">
+                <div class="status-indicator">
+                    <span class="status-label">WAR STATUS:</span>
+                    <span class="status-value critical">CRITICAL</span>
+                </div>
+                <div class="last-updated">
+                    <span class="update-label">LAST UPDATE:</span>
+                    <span class="update-value" id="update-time"></span>
+                </div>
+            </div>
+        </div>
+
+        <section class="strategic-view">
+            <div class="major-order-container">
+                <h2 class="section-title">MAJOR ORDER</h2>
+                <div class="major-order">
+                    <h3 class="order-title">LIBERATE VELD AND ESTUARY</h3>
+                    <p class="order-description">Super Earth High Command has identified the Veld and Estuary sectors as critical to breaking Automaton supply lines. All Helldivers are ordered to focus operations in these systems.</p>
+                    <div class="order-progress">
+                        <div class="progress-labels">
+                            <span>Liberation Progress</span>
+                            <span class="progress-percent">47%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 47%"></div>
+                        </div>
+                        <div class="time-remaining">
+                            <span>Time Remaining:</span>
+                            <span class="time-value">1d 18h 42m</span>
+                        </div>
+                    </div>
+                    <div class="reward-indicator">
+                        <span>REWARD:</span>
+                        <span class="reward-value">45,000 Requisition</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="war-map-container">
+                <h2 class="section-title">GALACTIC STRATEGIC MAP</h2>
+                <div class="galaxy-map">
+                    <div class="sector" id="sector-1">
+                        <div class="sector-label">VELD SECTOR</div>
+                        <div class="systems">
+                            <div class="system contested" data-name="Veld Prime">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system automaton" data-name="Veld-2">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system contested" data-name="Veld-3">
+                                <div class="system-status"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sector" id="sector-2">
+                        <div class="sector-label">ESTUARY SECTOR</div>
+                        <div class="systems">
+                            <div class="system automaton" data-name="Estuary Prime">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system contested" data-name="Estuary-2">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system super-earth" data-name="Estuary-3">
+                                <div class="system-status"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sector" id="sector-3">
+                        <div class="sector-label">TERMINUS FRONT</div>
+                        <div class="systems">
+                            <div class="system terminid" data-name="Terminus Prime">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system terminid" data-name="Terminus-2">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system contested" data-name="Terminus-3">
+                                <div class="system-status"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sector" id="sector-4">
+                        <div class="sector-label">ILLUMINATE ZONE</div>
+                        <div class="systems">
+                            <div class="system illuminate" data-name="Unknown-1">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system illuminate" data-name="Unknown-2">
+                                <div class="system-status"></div>
+                            </div>
+                            <div class="system super-earth" data-name="Outpost-12">
+                                <div class="system-status"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-controls">
+                    <button class="map-btn zoom-in">+</button>
+                    <button class="map-btn zoom-out">-</button>
+                    <button class="map-btn filter-btn" data-filter="all">ALL</button>
+                    <button class="map-btn filter-btn" data-filter="automaton">AUTOMATONS</button>
+                    <button class="map-btn filter-btn" data-filter="terminid">TERMINIDS</button>
+                    <button class="map-btn filter-btn" data-filter="illuminate">ILLUMINATE</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="war-stats">
+            <h2 class="section-title">WAR STATISTICS</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <h3>ACTIVE HELLDIVERS</h3>
+                        <p class="stat-value" id="active-divers">1,287,456</p>
+                        <p class="stat-change positive">+12,345 today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🪖</div>
+                    <div class="stat-content">
+                        <h3>CASUALTIES</h3>
+                        <p class="stat-value" id="casualties">4,567,891</p>
+                        <p class="stat-change negative">+89,123 today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎖️</div>
+                    <div class="stat-content">
+                        <h3>MISSIONS COMPLETED</h3>
+                        <p class="stat-value" id="missions">8,245,678</p>
+                        <p class="stat-change positive">+245,789 today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💀</div>
+                    <div class="stat-content">
+                        <h3>ENEMIES KILLED</h3>
+                        <p class="stat-value" id="kills">14,892,345,671</p>
+                        <p class="stat-change positive">+456,789,123 today</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="campaign-updates">
+            <h2 class="section-title">CAMPAIGN UPDATES</h2>
+            <div class="updates-container">
+                <div class="update-card">
+                    <div class="update-header">
+                        <span class="update-time">2 HOURS AGO</span>
+                        <span class="update-source">SUPER EARTH HIGH COMMAND</span>
+                    </div>
+                    <h3 class="update-title">Automaton Counteroffensive in Veld Sector</h3>
+                    <p class="update-content">Enemy forces have launched a massive counterattack in the Veld sector, pushing back our gains on Veld Prime. All available Helldivers are ordered to reinforce the sector immediately.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-header">
+                        <span class="update-time">5 HOURS AGO</span>
+                        <span class="update-source">TERMINUS FRONT COMMAND</span>
+                    </div>
+                    <h3 class="update-title">Terminid Swarm Activity Increasing</h3>
+                    <p class="update-content">Scout reports indicate unusual Terminid movement patterns near Terminus-3. Possible breeder migration detected. Planetary defenses on high alert.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-header">
+                        <span class="update-time">1 DAY AGO</span>
+                        <span class="update-source">ILLUMINATE RESEARCH DIVISION</span>
+                    </div>
+                    <h3 class="update-title">Illuminate Sightings Confirmed</h3>
+                    <p class="update-content">After months of silence, Illuminate forces have been confirmed active near Outpost-12. All patrols advised to exercise extreme caution.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Super Earth Armed Forces. All rights reserved.</p>
+        <p>Victory through superior firepower.</p>
+    </footer>
+
+    <script src="js/war.js"></script>
+</body>
+</html>
